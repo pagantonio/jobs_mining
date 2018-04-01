@@ -29,9 +29,8 @@ class StatePipeline(object):
 
     def process_item(self, item, spider):
         print('Processing state, item=' + str(item))
-        if spider.name not in ['joblinks', 'monster', 'author', 'linkedin', 'quotes']:
-            state = next(d for (index, d) in enumerate(self.states) if d['short'] == item['state_short'])
-            item['state_long'] = state['long']
+        state = next(d for (index, d) in enumerate(self.states) if d['short'] == item['state_short'])
+        item['state_long'] = state['long']
         return item
 
 
@@ -47,6 +46,5 @@ class MongoPipeline(object):
 
     def process_item(self, item, spider):
         print('Saving job to database')
-        if spider.name not in ['joblinks', 'monster', 'author', 'linkedin', 'quotes']:
-            self.collection.insert(dict(item))
+        self.collection.insert(dict(item))
         return item
