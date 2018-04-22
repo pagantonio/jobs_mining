@@ -64,8 +64,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'jobs_mining.pipelines.StatePipeline': 100,
-    'jobs_mining.pipelines.MongoPipeline': 300
+    # 'jobs_mining.pipelines.StatePipeline': 100,
+    # 'jobs_mining.pipelines.MongoPipeline': 300
 }
 
 MONGODB_SERVER = "localhost"
